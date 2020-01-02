@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from sklearn.model_selection import train_test_split
 from goto import with_goto
+import imageio
+import hashlib
 
 letters = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J')
 TRAIN_DATA_PATH = os.path.join('..', 'data', 'notMNIST_large')
@@ -13,10 +15,8 @@ if not os.path.isdir(TRAIN_DATA_PATH) or not os.path.isdir(TEST_DATA_PATH):
 
 
 def get_overlaps(images1, images2):
-    images1.flags.writeable=False
-    images2.flags.writeable=False
-    hash1 = set([hash(image1.data) for image1 in images1])
-    hash2 = set([hash(image2.data) for image2 in images2])
+    hash1 = set([hashlib.md5(str(image1).encode('utf-8')) for image1 in images1])
+    hash2 = set([hashlib.md5(str(image2).encode('utf-8')) for image2 in images2])
     all_overlaps = set.intersection(hash1, hash2)
     return all_overlaps
 
@@ -48,6 +48,20 @@ def transform_to_array(dataset):
             y.append(letter)
 
     return X, y
+
+
+def load_images(X, y, source):
+    x_res, y_res = [], []
+    for i in range(len(X)):
+        path = os.path.join(source, y[i], X[i])
+        try:
+            image_data = imageio.imread(path)
+            x_res.append(image_data)
+            y_res.append(y[i])
+        except:
+            print(f'Bad file: {path}')
+
+    return x_res, y_res
 
 
 @with_goto
@@ -85,6 +99,12 @@ def main():
     X_test, y_test = transform_to_array(get_dataset(TEST_DATA_PATH))
 
     # 4
+    print('Files info fetched...')
+    X_train = load_images(X_train, y_train, TRAIN_DATA_PATH)
+    X_val = load_images(X_val, y_val, TRAIN_DATA_PATH)
+    X_test = load_images(X_test, y_test, TEST_DATA_PATH)
+    print(get_overlaps(X_train, X_val))
+    print(get_overlaps(X_train, X_test))
 
     # 5
 
