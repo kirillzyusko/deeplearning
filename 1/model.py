@@ -1,15 +1,18 @@
 from sklearn.linear_model import LogisticRegression
 import numpy as np
+import collections
 
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 
 def load():
-    X_train = convert_3d_to_2d(np.load('X_train.npy'))
-    y_train = np.load('y_train.npy')
-    X_test = convert_3d_to_2d(np.load('X_test.npy'))
-    y_test = np.load('y_test.npy')
+    X_train = convert_3d_to_2d(np.load('../processed/notMNIST/X_train.npy')) / 255 # with normalization
+    y_train = np.load('../processed/notMNIST/y_train.npy')
+    X_test = convert_3d_to_2d(np.load('../processed/notMNIST/X_test.npy')) / 255 # with normalization
+    y_test = np.load('../processed/notMNIST/y_test.npy')
+    # {'G': 17495, 'E': 17446, 'B': 17445, 'A': 17441, 'F': 17382, 'C': 17315, 'D': 17315, 'J': 17256, 'H': 17104, 'I': 15196}
+    print(collections.Counter(y_train))
 
     return X_train, y_train, X_test, y_test
 
@@ -30,7 +33,11 @@ def get_precision(k_samples=50):
     return score
 
 
-print(50, get_precision(50)) # 0.44
+"""
+If we run without normalization, code will execute much longer and results
+will be following: 0.44, 0.59, 0.772, 0.8857615894039735
+"""
+print(50, get_precision(50)) # 0.52
 print(100, get_precision(100)) # 0.59
-print(1000, get_precision(1000)) # 0.772
-print(50000, get_precision(50000)) # 0.8857615894039735
+print(1000, get_precision(1000)) # 0.822
+print(50000, get_precision(50000)) # 0.8867229224524674

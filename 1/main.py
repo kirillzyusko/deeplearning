@@ -116,15 +116,6 @@ def main():
 
     # 3
     label .task
-    x1 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
-    y1 = [1,7]
-    x2 = [[[1, 2], [3, 4]], [[6, 7], [7, 8]]]
-    y2 = [1,1]
-    X, y = get_overlaps(x1, x2, y1, y2)
-    print(np.load('X.npy'))
-    print(np.load('y.npy'))
-    np.save('X', np.array(X))
-    np.save('y', np.array(y))
     X, y = transform_to_array(cut_dataset(get_dataset(TRAIN_DATA_PATH), 0, 21000))
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.047619, random_state=1)
     X_test, y_test = transform_to_array(get_dataset(TEST_DATA_PATH))

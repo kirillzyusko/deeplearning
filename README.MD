@@ -1,4 +1,4 @@
-- [ ] 1 - Logistic regression as a neural network
+- [x] 1 - Logistic regression as a neural network
 - [ ] 2 - Deep Neural Network
 - [ ] 3 - Convolutional Neural Network
 - [ ] 4 - House Number Recognition
