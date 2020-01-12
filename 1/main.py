@@ -144,7 +144,7 @@ def main():
     np.save('y_train', np.array(y_without_val_test))
     np.save('X_val', np.array(X_val))
     np.save('y_val', np.array(y_val))
-    np.save('X_text', np.array(X_test))
+    np.save('X_test', np.array(X_test))
     np.save('y_test', np.array(y_test))
 
     # 5
