@@ -20,20 +20,20 @@ X_train, y_train, X_test, y_test = load()
 model = Sequential()
 
 # adding layers
-#model.add(Dense(500, kernel_initializer='normal', activation='relu', kernel_regularizer=regularizers.l2(0.01), name='hidden_0'))
-#model.add(Dense(300, kernel_initializer='normal', activation='relu', kernel_regularizer=regularizers.l2(0.01), name='hidden_1'))
-#model.add(Dense(200, kernel_initializer='normal', activation='relu', kernel_regularizer=regularizers.l2(0.01), name='hidden_2'))
-#model.add(Dense(25, kernel_initializer='normal', activation='relu', kernel_regularizer=regularizers.l2(0.01), name='hidden_3'))
-model.add(Dense(10, kernel_initializer='normal', activation='relu', kernel_regularizer=regularizers.l2(0.01), name='hidden_4'))
+model.add(Dense(200, kernel_initializer='normal', activation='relu', name='hidden_0'))
+model.add(Dense(140, kernel_initializer='normal', activation='relu', name='hidden_1'))
+model.add(Dense(100, kernel_initializer='normal', activation='relu', name='hidden_2'))
+model.add(Dense(70, kernel_initializer='normal', activation='relu', name='hidden_3'))
+model.add(Dense(10, kernel_initializer='normal', activation='relu', name='hidden_4'))
 
 # compile model
 model.compile(loss='mse', optimizer='sgd', metrics=['accuracy'])
 
 # train
-model.fit(X_train[0:50000], np.array(pd.get_dummies(y_train[0:50000])),
-          epochs=20,
+model.fit(X_train, np.array(pd.get_dummies(y_train)),
+          epochs=50,
           verbose=1,
-          validation_data=(X_test[0:50000], np.array(pd.get_dummies(y_test[0:50000]))))
+          validation_data=(X_test, np.array(pd.get_dummies(y_test))))
 
-score, acc = model.evaluate(X_test[0:50000], np.array(pd.get_dummies(y_test[0:50000])), verbose=1)
-print(score, acc)
+score, acc = model.evaluate(X_test, np.array(pd.get_dummies(y_test)), verbose=1)
+print(score, acc) # 0.92, 0.0210 - 37 epochs
