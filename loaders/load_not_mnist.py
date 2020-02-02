@@ -14,4 +14,4 @@ def load(conv=False):
 
 
 def convert_3d_to_2d(arr, conv):
-    return np.reshape(arr, [arr.shape[0], arr.shape[1] * arr.shape[2]]) if conv else np.reshape(arr, [arr.shape[0], arr.shape[1], arr.shape[2], 1])
+    return np.reshape(arr, [arr.shape[0], arr.shape[1] * arr.shape[2]]) if not conv else np.reshape(arr, [arr.shape[0], arr.shape[1], arr.shape[2], 1])
