@@ -1,8 +1,8 @@
 - [x] 1 - Logistic regression as a neural network
-- [ ] 2 - Deep Neural Network
-- [ ] 3 - Convolutional Neural Network
+- [x] 2 - Deep Neural Network
+- [x] 3 - Convolutional Neural Network
 - [ ] 4 - House Number Recognition
-- [ ] 5 - Applying CNN (binary classification) (*kaggle)
+- [x] 5 - Applying CNN (binary classification) (*kaggle)
 - [ ] 6 - Applying CNN (multiclassification) (*kaggle)
 - [ ] 7 - Recurrent neural network for text analysis
 - [ ] 8 - Recurrent neural network for time series analysis
