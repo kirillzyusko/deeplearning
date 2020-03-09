@@ -89,6 +89,7 @@ def load_images(X, y, source):
 @with_goto
 def main():
     goto .task
+    label .task
     # 1
     fig=plt.figure(figsize=(8, 8))
     columns = 5
@@ -115,7 +116,6 @@ def main():
     plt.show()
 
     # 3
-    label .task
     X, y = transform_to_array(cut_dataset(get_dataset(TRAIN_DATA_PATH), 0, 21000))
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.047619, random_state=1)
     X_test, y_test = transform_to_array(get_dataset(TEST_DATA_PATH))
