@@ -1,8 +1,8 @@
 - [x] 1 - Logistic regression as a neural network
 - [x] 2 - Deep Neural Network
 - [x] 3 - Convolutional Neural Network
-- [ ] 4 - House Number Recognition
-- [x] 5 - Applying CNN (binary classification) (*kaggle) <- check test set (need to get test score)
-- [x] 6 - Applying CNN (multiclassification) (*kaggle) <- almost the same results in 3 cases - try to add CrossValidation
+- [ ] 4 - House Number Recognition <- **in progress**
+- [x] 5 - Applying CNN (binary classification)
+- [x] 6 - Applying CNN (multiclassification)
 - [ ] 7 - Recurrent neural network for text analysis
-- [ ] 8 - Recurrent neural network for time series analysis <- in progress
+- [ ] 8 - Recurrent neural network for time series analysis <- **bad predictions**
