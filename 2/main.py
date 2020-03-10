@@ -33,14 +33,14 @@ with tf.device('/cpu:0'):
     model.add(Dropout(0.1, name='dropout_3'))
     model.add(Dense(10, kernel_initializer='normal', activation='relu', name='hidden_4'))
 
-    sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+    sgd = optimizers.SGD(lr=0.1, decay=1e-4, momentum=0.9, nesterov=True)
 
     # compile model
     model.compile(loss='mse', optimizer=sgd, metrics=['accuracy'])
 
     # train
     model.fit(X_train, np.array(pd.get_dummies(y_train)),
-              epochs=1000,
+              epochs=60,
               verbose=1,
               validation_data=(X_test, np.array(pd.get_dummies(y_test))))
 

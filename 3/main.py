@@ -33,7 +33,7 @@ with tf.device('/cpu:0'):
 
     # train
     model.fit(X_train, np.array(pd.get_dummies(y_train)),
-              epochs=1000,
+              epochs=60,
               verbose=1,
               validation_data=(X_test, np.array(pd.get_dummies(y_test))))
 
