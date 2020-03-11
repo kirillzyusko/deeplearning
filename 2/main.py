@@ -16,7 +16,7 @@ sys.path.append(os.path.abspath(os.path.join('..', 'loaders')))
 from load_not_mnist import load
 
 
-X_train, y_train, X_test, y_test = load()
+X_train, y_train, X_val, y_val, X_test, y_test = load()
 
 with tf.device('/cpu:0'):
     # definition
@@ -42,7 +42,7 @@ with tf.device('/cpu:0'):
     model.fit(X_train, np.array(pd.get_dummies(y_train)),
               epochs=60,
               verbose=1,
-              validation_data=(X_test, np.array(pd.get_dummies(y_test))))
+              validation_data=(X_val, np.array(pd.get_dummies(y_val))))
 
     score, acc = model.evaluate(X_test, np.array(pd.get_dummies(y_test)), verbose=1)
     print(score, acc) # 0.92, 0.0328 - 60 epochs

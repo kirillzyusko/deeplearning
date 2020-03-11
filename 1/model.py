@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath(os.path.join('..', 'loaders')))
 from load_not_mnist import load
 
 
-X_train, y_train, X_test, y_test = load()
+X_train, y_train, X_val, y_val, X_test, y_test = load()
 
 
 def get_precision(k_samples=50):
