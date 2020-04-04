@@ -4,5 +4,5 @@
 - [x] 4 - House Number Recognition
 - [x] 5 - Applying CNN (binary classification)
 - [x] 6 - Applying CNN (multi-classification)
-- [ ] 7 - Recurrent neural network for text analysis <- **in progress**
+- [x] 7 - Recurrent neural network for text analysis
 - [ ] 8 - Recurrent neural network for time series analysis <- **bad predictions**
