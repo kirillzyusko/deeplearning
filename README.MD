@@ -5,4 +5,4 @@
 - [x] 5 - Applying CNN (binary classification)
 - [x] 6 - Applying CNN (multi-classification)
 - [x] 7 - Recurrent neural network for text analysis
-- [ ] 8 - Recurrent neural network for time series analysis <- **bad predictions**
+- [x] 8 - Recurrent neural network for time series analysis
